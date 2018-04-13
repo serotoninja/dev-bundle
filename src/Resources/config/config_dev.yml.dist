@@ -1,6 +1,0 @@
-# Sample configuration.
-serotoninja_dev:
-    make_readme:
-        input_yaml: 'src/Acme/FooBundle/README.yml'
-        target_dir: 'src/Acme/FooBundle'
-        overwrite: false
