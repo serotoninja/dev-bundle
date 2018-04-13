@@ -12,10 +12,10 @@ if ($html_header) {
         echo '<a href="' . $url . '" target="_blank">';
         echo '<img src="' . $html_header['image'] . '" alt="' . $title . '">';
         echo '</a></p>';
-        echo '<h3 align="center">' . $title . '</h3>';
     } else {
-        echo '<h3 align="center"><a href="' . $url . '" target="_blank">' . $title . '</a></h3>';
+        $title = '<a href="' . $url . '" target="_blank">' . $title . '</a>';
     }
+    echo '<h3 align="center">' . $title . '</h3>';
     echo '<p align="center">';
     echo $description . '<br/><br/>';
     if (is_array($html_header['urls'])) {
