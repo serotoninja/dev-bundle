@@ -1,4 +1,4 @@
-<p align="center"><a href="https://github.com/serotoninja/dev-bundle" target="_blank"><img src="https://img.shields.io/badge/serotoninja/dev--bundle-0.0.2-322d2d.svg?&style=for-the-badge" alt="SerotoninjaDevBundle"></a></p><h3 align="center">SerotoninjaDevBundle</h3><p align="center">Some smart development tools for Symfony.<br/><br/><a href="doc/" target="_blank"><strong>Documentation »</strong></a><br/><br/></p><hr>
+<p align="center"><a href="https://github.com/serotoninja/dev-bundle" target="_blank"><img src="https://img.shields.io/badge/serotoninja/dev--bundle-0.0.1-322d2d.svg?&style=for-the-badge" alt="SerotoninjaDevBundle"></a></p><h3 align="center">SerotoninjaDevBundle</h3><p align="center">Some smart development tools for Symfony.<br/><br/><a href="doc/" target="_blank"><strong>Documentation »</strong></a><br/><br/></p><hr>
 
 ## Status
 
@@ -36,7 +36,7 @@ serotoninja_dev:
     make_readme:
         input_yaml: 'src/Acme/FooBundle/README.yml'
         target_dir: 'src/Acme/FooBundle'
-        overwrite: false
+        overwrite: true                             # default false
 ```
 
 ## Authors
