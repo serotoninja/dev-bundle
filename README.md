@@ -27,6 +27,17 @@ public function registerBundles()
     return $bundles;
 }
 ```
+### Configuration
+
+Configure the bundle in app/config/config_dev.yml:
+
+```
+serotoninja_dev:
+    make_readme:
+        input_yaml: 'src/Acme/FooBundle/README.yml'
+        target_dir: 'src/Acme/FooBundle'
+        overwrite: false
+```
 
 ## Authors
 
