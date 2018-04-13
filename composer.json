@@ -1,0 +1,29 @@
+{
+  "name": "serotoninja/dev-bundle",
+  "type": "symfony-bundle",
+  "description": "Some smart development tools for Symfony",
+  "keywords": ["symfony", "dev", "bundle"],
+  "homepage": "https://github.com/serotoninja/dev-bundle",
+  "license": "n/a",
+  "authors": [
+    {
+      "name": "serotoninja",
+      "email": "serotoninja@gmail.com",
+      "role": "Lead Developer"
+    }
+  ],
+  "require-dev": {
+    "sensio/generator-bundle": "^3.0"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "autoload": {
+    "psr-4": { "Serotoninja\\DevBundle\\": "src" }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.x-dev"
+    },
+    "sort-packages": true
+  }
+}
