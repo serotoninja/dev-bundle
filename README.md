@@ -1,4 +1,11 @@
-<p align="center"><a href="https://github.com/serotoninja/dev-bundle" target="_blank"><img src="https://avatars1.githubusercontent.com/u/38302310?s=460&v=4" alt="SerotoninjaDevBundle"></a></p><h3 align="center">SerotoninjaDevBundle</h3><p align="center">Some smart development tools for Symfony.<br/><br/><a href="doc/" target="_blank"><strong>Documentation »</strong></a><br/><br/></p><hr>
+<p align="center"><a href="https://github.com/serotoninja/dev-bundle" target="_blank"><img src="https://img.shields.io/badge/serotoninja/dev--bundle-0.0.1-322d2d.svg?&style=for-the-badge" alt="SerotoninjaDevBundle"></a></p><h3 align="center">SerotoninjaDevBundle</h3><p align="center">Some smart development tools for Symfony.<br/><br/><a href="doc/" target="_blank"><strong>Documentation »</strong></a><br/><br/></p><hr>
+
+## Status
+
+[![PHP](https://img.shields.io/badge/PHP-7.1.3-8892BF.svg?style=flat-square)](https://php.net/)
+[![Composer](https://img.shields.io/badge/Composer-1.6.3-4444ff.svg?style=flat-square)](https://getcompser.com/)
+[![Symfony](https://img.shields.io/badge/Symfony-3.4-222222.svg?style=flat-square)](https://www.symfony.com/)
+[![License](https://img.shields.io/badge/License-MIT-1284bf.svg?style=flat-square)](LICENSE)
 
 ## Installation
 
@@ -25,8 +32,4 @@ public function registerBundles()
 
 **serotoninja** - Lead Developer
 - <https://github.com/serotoninja>
-
-## License
-
-[![license](https://img.shields.io/badge/license-MIT-red.svg?style=flat-square)](LICENSE)
 
