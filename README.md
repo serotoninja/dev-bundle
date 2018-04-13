@@ -20,14 +20,6 @@ public function registerBundles()
     return $bundles;
 }
 ```
-### Configuration
-
-Configure the bundle in app/config/config_dev.yml:
-
-```
-serotoninja_dev:
-    readme_yaml: '%kernel.root_dir%/config/readme.yml'
-```
 
 ## Authors
 
