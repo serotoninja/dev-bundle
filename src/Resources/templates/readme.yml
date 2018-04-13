@@ -1,0 +1,95 @@
+readme:
+    title: 'Untitled Project'
+    description: 'One paragraph of short project description is placed here.'
+    url:  'https://github.com/foobar/untitled-project'
+    html_header:
+        image: 'https://dummyimage.com/96x96/888/fff&text=Untitled'
+        urls:
+            0:
+                Documentation: 'doc/'
+                Report a bug: 'issues/new'
+            1:
+                Request a feature: 'http://foo.net/feature/new'
+                Blog: 'http://foo.net/blog'
+                Community: 'http://foo.net/community'
+                Service: 'http://foo.net/service'
+                Misc: 'http://foo.net/misc'
+    toc: true
+    chapters:
+        Status:
+            intro: 'Place some fancy status icons here, see https://shields.io/.'
+            icons:
+                self:
+                    image: 'https://img.shields.io/badge/foobar/untitled--project-0.0.1-322d2d.svg?&style=for-the-badge'
+                PHP:
+                    image: 'https://img.shields.io/badge/PHP-7.2-8892BF.svg?style=flat-square'
+                    url: 'http://php.net/'
+                Symfony:
+                    image: 'https://img.shields.io/badge/Symfony-3.4-000000.svg?style=flat-square'
+                    url: 'http://symfony.com/'
+                Bootstrap:
+                    image: 'https://img.shields.io/badge/Bootstrap-4.1-563d7c.svg?style=flat-square'
+                    url: 'http://getbootstrap.com/'
+                License:
+                    image: 'https://img.shields.io/badge/License-MIT-1284bf.svg?style=flat-square'
+                    url: 'LICENSE'
+                Code Coverage:
+                    image: 'https://img.shields.io/badge/CodeCoverage-95/100-green.svg?style=flat-square'
+                Downloads:
+                    image: 'https://img.shields.io/badge/Downloads-3.4M-red.svg?style=flat-square'
+                Build:
+                    image: 'https://img.shields.io/badge/build-n/a-cc0000.svg?style=flat-square'
+        Prerequisites:
+            intro: 'Prerequisites intro.'
+            link_list:
+                PHP:
+                    description: 'The used programming language'
+                    url: 'https://www.php.net/'
+                Composer:
+                    description: 'Dependency management'
+                    url: 'https://www.getcomposer.org/'
+                PHPUnit:
+                    description: 'Automated testing framework'
+                    url: 'https://phpunit.de/'
+                Docker (optional):
+                    description: 'Docker virtualisation'
+                    url: 'https://docker.io/'
+        Quickstart:
+            intro: 'Quickstart intro.'
+            paragraphs:
+                Title:
+                    text: 'Single-line code:'
+                    code: '$ single-line code sample'
+        Built With:
+            link_list:
+                Stuff:
+                    description: 'Some used stuff'
+                    url: 'http://foo'
+        Contributing:
+            intro: 'Provide contributing info here or a link for details on the code of conduct, and the process for submitting pull requests to the project.'
+            paragraphs:
+                Title:
+                    text: 'Also multi-line code is possible:'
+                    code: |
+                        $ multi-line code sample 1
+                        $ multi-line code sample 2
+                        $ multi-line code sample 3
+        Development:
+            intro: 'Provide development info here.'
+        Testing:
+            intro: 'Explain how to run the automated tests for this system:'
+        Versioning:
+            intro: 'Versioning information.'
+        Deployment:
+            intro: 'Add additional notes about how to deploy this project on any system.'
+        Authors:
+            persons:
+                Foo Bar:
+                    function: 'Lead Developer'
+                    urls: ['https://github.com/foobar']
+        Community:
+            intro: 'Get updates on project development and chat with the project maintainers and community members.'
+        License:
+            intro: 'Licensing information or a link for details.'
+        Acknowledgments:
+            intro: 'Room for inspiration sources here.'
