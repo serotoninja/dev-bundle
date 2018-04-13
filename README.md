@@ -5,6 +5,29 @@
 ### Install via composer
 
 ```$ composer require serotoninja/dev-bundle --dev```
+### Register bundle
+
+Register as dev bundle in app/AppKernel.php:
+
+```
+public function registerBundles()
+{
+    // ...
+    if (in_array($this->getEnvironment(), ['dev', 'test'])) {
+        // ...
+        $bundles[] = new Serotoninja\DevBundle\SerotoninjaDevBundle();
+    }
+    return $bundles;
+}
+```
+### Configuration
+
+Configure the bundle in app/config/config_dev.yml:
+
+```
+serotoninja_dev:
+    readme_yaml: '%kernel.root_dir%/config/readme.yml'
+```
 
 ## Authors
 
