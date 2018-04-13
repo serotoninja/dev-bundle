@@ -23,10 +23,9 @@ if ($html_header) {
             $header_links = array();
             foreach ($urls as $text => $url) {
                 if ($line === 0) {
-                    $header_links[] = '<a href="' . $url . '" target="_blank"><strong>' . $text . ' »</strong></a>';
-                } else {
-                    $header_links[] = '<a href="' . $url . '" target="_blank">' . $text . '</a>';
+                    $text = '<strong>' . $text . ' »</strong>';
                 }
+                $header_links[] = '<a href="' . $url . '" target="_blank">' . $text . '</a>';
             }
             echo implode(' · ', $header_links) . '<br/><br/>';
         }
