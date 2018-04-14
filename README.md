@@ -42,6 +42,20 @@ public function registerBundles()
 }
 // ...
 ```
+### Configuration
+
+Configuration is optional, the needed values are requested by the script.
+
+Change the proposed values in `config_dev.yml`:
+
+
+```yaml
+serotoninja_dev:
+    make_readme:
+        folder: 'src/Acme/FooBundle'
+    make_license:
+        folder: 'src/Acme/FooBundle'
+```
 
 ## MakeReadme
 
@@ -50,7 +64,7 @@ public function registerBundles()
 Copy the template and customize your own README.yml input file:
 
 ```bash
-$ cp vendor/serotoninja/dev-bundle/src/Resources/templates/readme.yml src/Acme/FooBundle/README.yml
+$ cp vendor/serotoninja/dev-bundle/examples/make-readme/README.yml src/Acme/FooBundle
 ```
 ### Usage
 
@@ -58,17 +72,6 @@ Generate a `README.md` file easily:
 
 ```bash
 $ php bin/console make:readme
-```
-### Configuration
-
-Configuration is optional, all needed values are requested by the script.
-Change the proposed values in `config_dev.yml`:
-
-
-```yaml
-serotoninja_dev:
-    make_readme:
-        folder: 'src/Acme/FooBundle'
 ```
 
 ## MakeLicense
@@ -79,17 +82,6 @@ Generate a `LICENSE` file easily:
 
 ```bash
 $ php bin/console make:license
-```
-### Configuration
-
-Configuration is optional, all needed values are requested by the script.
-Change the proposed values in `config_dev.yml`:
-
-
-```yaml
-serotoninja_dev:
-    make_license:
-        folder: 'src/Acme/FooBundle'
 ```
 
 ## Authors
