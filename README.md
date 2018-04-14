@@ -41,6 +41,8 @@ serotoninja_dev:
 
 ## MakeReadme
 
+Depends on [The Symfony MakerBudle](https://github.com/symfony/maker-bundle).
+
 ### Input file
 
 Copy the template and customize your own README.yml input file:
