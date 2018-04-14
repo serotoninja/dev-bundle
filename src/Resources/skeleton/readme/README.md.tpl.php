@@ -41,7 +41,7 @@ if ($html_header) {
 if ($toc) {
     echo '## Table of contents' . PHP_EOL . PHP_EOL;
     foreach ($chapters as $title => $chapter) {
-        echo '- [' . $title . '](#' . Symfony\Bundle\MakerBundle\Str::asSnakeCase($title) . ')' . PHP_EOL;
+        echo '- [' . $title . '](#' . Serotoninja\DevBundle\Str::asHashAnchor($title) . ')' . PHP_EOL;
     }
     echo PHP_EOL;
 }
