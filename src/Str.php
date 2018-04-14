@@ -19,7 +19,7 @@ final class Str
     public static function asHashAnchor(string $value): string
     {
         $value = strtolower($value);
-        $value = str_replace(' ', '-', $value);
+        $value = '#' . str_replace(' ', '-', $value);
         return $value;
     }
 }
