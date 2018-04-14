@@ -1,4 +1,4 @@
-<p align="center"><a href="https://github.com/serotoninja/dev-bundle" target="_blank"><img src="https://img.shields.io/badge/serotoninja/dev--bundle-0.0.4-322d2d.svg?&style=for-the-badge" alt="SerotoninjaDevBundle"></a></p><h3 align="center">SerotoninjaDevBundle</h3><p align="center">Some smart development tools for Symfony.<br/><br/><a href="doc/" target="_blank"><strong>Documentation »</strong></a><br/><br/></p><hr>
+<p align="center"><a href="https://github.com/serotoninja/dev-bundle" target="_blank"><img src="https://img.shields.io/badge/serotoninja/dev--bundle-0.0.5-322d2d.svg?&style=for-the-badge" alt="SerotoninjaDevBundle"></a></p><h3 align="center">SerotoninjaDevBundle</h3><p align="center">Some smart development tools for Symfony.<br/><br/><a href="doc/" target="_blank"><strong>Documentation »</strong></a><br/><br/></p><hr>
 
 ## Table of contents
 
