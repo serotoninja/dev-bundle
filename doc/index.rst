@@ -36,3 +36,14 @@ optional arguments and options. Check them out with the ``--help`` option:
 
     $ php bin/console make:license --help
     $ php bin/console make:readme --help
+
+Configuration is optional, the needed values are requested by the script.
+Change the proposed values in `config_dev.yml`:
+
+.. code-block:: yaml
+
+    serotoninja_dev:
+        make_readme:
+            folder: 'src/Acme/FooBundle'
+        make_license:
+            folder: 'src/Acme/FooBundle'
