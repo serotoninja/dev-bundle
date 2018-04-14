@@ -12,6 +12,23 @@ Run this command to install and enable this bundle in your application:
 
     $ composer require serotoninja/dev-bundle --dev
 
+Register as dev bundle in app/AppKernel.php:
+
+.. code-block:: php
+
+    // app/AppKernel.php
+
+    public function registerBundles()
+    {
+        // ...
+        if (in_array($this->getEnvironment(), ['dev', 'test'])) {
+            // ...
+            $bundles[] = new Serotoninja\DevBundle\SerotoninjaDevBundle();
+        }
+        return $bundles;
+    }
+    // ...
+
 Usage
 -----
 
