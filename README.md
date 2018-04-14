@@ -1,4 +1,4 @@
-<p align="center"><a href="https://github.com/serotoninja/dev-bundle" target="_blank"><img src="https://img.shields.io/badge/serotoninja/dev--bundle-0.0.2-322d2d.svg?&style=for-the-badge" alt="SerotoninjaDevBundle"></a></p><h3 align="center">SerotoninjaDevBundle</h3><p align="center">Some smart development tools for Symfony.<br/><br/><a href="doc/" target="_blank"><strong>Documentation »</strong></a><br/><br/></p><hr>
+<p align="center"><a href="https://github.com/serotoninja/dev-bundle" target="_blank"><img src="https://img.shields.io/badge/serotoninja/dev--bundle-0.0.3-322d2d.svg?&style=for-the-badge" alt="SerotoninjaDevBundle"></a></p><h3 align="center">SerotoninjaDevBundle</h3><p align="center">Some smart development tools for Symfony.<br/><br/><a href="doc/" target="_blank"><strong>Documentation »</strong></a><br/><br/></p><hr>
 
 ## Table of contents
 
@@ -18,13 +18,14 @@
 
 ### Install via composer
 
-```$ composer require serotoninja/dev-bundle --dev```
+```bash
+$ composer require serotoninja/dev-bundle --dev
+```
 ### Register bundle
 
 Register as dev bundle in app/AppKernel.php:
 
 ```php
-<?php
 // app/AppKernel.php
 
 public function registerBundles()
@@ -38,17 +39,6 @@ public function registerBundles()
 }
 // ...
 ```
-### Configuration
-
-Configure the bundle in app/config/config_dev.yml:
-
-```yaml
-serotoninja_dev:
-    make_readme:
-        input_yaml: 'src/Acme/FooBundle/README.yml'
-        target_dir: 'src/Acme/FooBundle'
-        overwrite: false
-```
 
 ## MakeReadme
 
@@ -58,12 +48,27 @@ Depends on [The Symfony MakerBudle](https://github.com/symfony/maker-bundle).
 
 Copy the template and customize your own README.yml input file:
 
-```$ cp vendor/serotoninja/dev-bundle/src/Resources/templates/readme.yml src/Acme/FooBundle/README.yml```
+```bash
+$ cp vendor/serotoninja/dev-bundle/src/Resources/templates/readme.yml src/Acme/FooBundle/README.yml
+```
 ### Usage
 
-Generate a new README.md file:
+Generate a ```README.md``` file easily:
 
-```$ php bin/console make:readme```
+```bash
+$ php bin/console make:readme
+```
+### Configuration
+
+Configuration is optional, all needed values are requested by the script.
+Change the proposed values in `config_dev.yml`:'
+
+
+```yaml
+serotoninja_dev:
+    make_readme:
+        folder: 'src/Acme/FooBundle'
+```
 
 ## Authors
 

@@ -1,5 +1,7 @@
 <?php
 
+use Serotoninja\DevBundle\Str;
+
 /**
  * README.md tpl template
  *
@@ -41,7 +43,7 @@ if ($html_header) {
 if ($toc) {
     echo '## Table of contents' . PHP_EOL . PHP_EOL;
     foreach ($chapters as $title => $chapter) {
-        echo '- [' . $title . '](' . Serotoninja\DevBundle\Str::asHashAnchor($title) . ')' . PHP_EOL;
+        echo '- [' . $title . '](' . Str::asHashAnchor($title) . ')' . PHP_EOL;
     }
     echo PHP_EOL;
 }
@@ -86,11 +88,7 @@ foreach ($chapters as $title => $chapter) {
                 echo $paragraph['text'] . PHP_EOL . PHP_EOL;
             }
             if (isset($paragraph['code'])) {
-                if (strpos($paragraph['code'], "\n") !== false) {
-                    echo '```' . PHP_EOL . $paragraph['code'] . '```' . PHP_EOL;
-                } else {
-                    echo '```' . $paragraph['code'] . '```' . PHP_EOL;
-                }
+                echo Str::handleCode($paragraph['code']);
             }
 
         }

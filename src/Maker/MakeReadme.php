@@ -11,6 +11,7 @@ use Symfony\Bundle\MakerBundle\MakerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -23,18 +24,16 @@ use Symfony\Component\Yaml\Yaml;
  */
 final class MakeReadme extends AbstractMaker implements MakerInterface
 {
-    private const FILE = 'README.md';
+    private const OUTPUT_FILE = 'README.md';
 
-    private const KEYS = ['input_yaml', 'target_dir', 'overwrite'];
+    private const INPUT_FILE = 'README.yml';
+
+    private const TEMPLATE_FILE = 'README.md.tpl.php';
+
+    private const KEYS = ['folder'];
 
     /** @var string */
-    private $input_yaml;
-
-    /** @var string */
-    private $target_dir;
-
-    /** @var boolean */
-    private $overwrite;
+    private $folder;
 
     /**
      * MakeReadme constructor.
@@ -66,8 +65,8 @@ final class MakeReadme extends AbstractMaker implements MakerInterface
     {
         $command
             ->setDescription('Creates a new README.md file')
-            ->addArgument('dir', InputArgument::OPTIONAL, sprintf('Choose a target directory (e.g. <fg=yellow>%s</>)', $this->target_dir))
-            ->addArgument('input', InputArgument::OPTIONAL, sprintf('Choose a yaml input file (e.g. <fg=yellow>%s</>)', $this->input_yaml))
+            ->addArgument('folder', InputArgument::OPTIONAL, sprintf('Choose the working directory (e.g. <fg=yellow>%s</>)', $this->folder))
+            ->addOption('force', 'f',InputOption::VALUE_NONE, 'Force generation (overwrites target file)')
             ->setHelp(file_get_contents(__DIR__.'/../Resources/help/MakeReadme.txt'))
         ;
     }
@@ -79,22 +78,22 @@ final class MakeReadme extends AbstractMaker implements MakerInterface
      */
     public function generate(InputInterface $input, ConsoleStyle $io, Generator $generator)
     {
-        $dir = trim($input->getArgument('dir'));
-        $input = trim($input->getArgument('input'));
+        $folder = trim($input->getArgument('folder'));
+        $force = trim($input->getOption('force'));
 
-        $targetPath = $dir . '/' . self::FILE;
+        $templatePath = __DIR__. '/../Resources/skeleton/readme/' . self::TEMPLATE_FILE;
+        $sourcePath = $folder . DIRECTORY_SEPARATOR . self::INPUT_FILE;
+        $targetPath = $folder . DIRECTORY_SEPARATOR . self::OUTPUT_FILE;
 
-        if ($this->overwrite && is_file($targetPath)) {
+        if ($force && is_file($targetPath)) {
             unlink($targetPath);
         }
 
-        $parameters = Yaml::parse(file_get_contents($input))['readme'];
-
-        $template = __DIR__. '/../Resources/skeleton/readme/README.md.tpl.php';
+        $parameters = Yaml::parse(file_get_contents($sourcePath))['readme'];
 
         $generator->generateFile(
             $targetPath,
-            $template,
+            $templatePath,
             $parameters
         );
 
