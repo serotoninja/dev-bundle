@@ -2,9 +2,6 @@
 
 namespace Serotoninja\DevBundle;
 
-use Symfony\Component\DependencyInjection\Container;
-use Doctrine\Common\Inflector\Inflector;
-
 /**
  * Class Str
  *
