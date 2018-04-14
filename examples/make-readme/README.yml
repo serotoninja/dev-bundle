@@ -71,6 +71,7 @@ readme:
                 Title:
                     text: 'Also multi-line code is possible:'
                     code: |
+                        bash
                         $ multi-line code sample 1
                         $ multi-line code sample 2
                         $ multi-line code sample 3
