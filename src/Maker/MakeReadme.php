@@ -24,12 +24,16 @@ use Symfony\Component\Yaml\Yaml;
  */
 final class MakeReadme extends AbstractMaker implements MakerInterface
 {
+    /** @var string */
     private const OUTPUT_FILE = 'README.md';
 
+    /** @var string */
     private const INPUT_FILE = 'README.yml';
 
+    /** @var string */
     private const TEMPLATE_FILE = 'README.md.tpl.php';
 
+    /** @var array */
     private const KEYS = ['folder'];
 
     /** @var string */
@@ -39,7 +43,7 @@ final class MakeReadme extends AbstractMaker implements MakerInterface
      * MakeReadme constructor.
      * @param array $config
      */
-    public function __construct(array $config)
+    public function __construct(array $config = [])
     {
         foreach (self::KEYS as $key) {
             if (!array_key_exists($key, $config)) {
