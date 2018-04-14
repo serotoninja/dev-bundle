@@ -4,7 +4,7 @@
 
 - [Status](#status)
 - [Quickstart](#quickstart)
-- [MakeReadme](#make_readme)
+- [MakeReadme](#makereadme)
 - [Authors](#authors)
 
 ## Status
