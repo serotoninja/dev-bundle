@@ -23,7 +23,7 @@
 
 Register as dev bundle in app/AppKernel.php:
 
-```
+```php
 <?php
 // app/AppKernel.php
 
@@ -42,7 +42,7 @@ public function registerBundles()
 
 Configure the bundle in app/config/config_dev.yml:
 
-```
+```yaml
 serotoninja_dev:
     make_readme:
         input_yaml: 'src/Acme/FooBundle/README.yml'
