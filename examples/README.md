@@ -2,19 +2,19 @@
 
 ## Table of contents
 
-- [Status](Status)
-- [Prerequisites](Prerequisites)
-- [Quickstart](Quickstart)
-- [Built With](BuiltWith)
-- [Contributing](Contributing)
-- [Development](Development)
-- [Testing](Testing)
-- [Versioning](Versioning)
-- [Deployment](Deployment)
-- [Authors](Authors)
-- [Community](Community)
-- [License](License)
-- [Acknowledgments](Acknowledgments)
+- [Status](#status)
+- [Prerequisites](#prerequisites)
+- [Quickstart](#quickstart)
+- [Built With](#built_with)
+- [Contributing](#contributing)
+- [Development](#development)
+- [Testing](#testing)
+- [Versioning](#versioning)
+- [Deployment](#deployment)
+- [Authors](#authors)
+- [Community](#community)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
 
 ## Status
 
