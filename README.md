@@ -18,13 +18,14 @@
 
 ### Install via composer
 
-```$ composer require serotoninja/dev-bundle --dev```
+```bash
+$ composer require serotoninja/dev-bundle --dev
+```
 ### Register bundle
 
 Register as dev bundle in app/AppKernel.php:
 
 ```php
-<?php
 // app/AppKernel.php
 
 public function registerBundles()
@@ -38,17 +39,6 @@ public function registerBundles()
 }
 // ...
 ```
-### Configuration
-
-Configure the bundle in app/config/config_dev.yml:
-
-```yaml
-serotoninja_dev:
-    make_readme:
-        input_yaml: 'src/Acme/FooBundle/README.yml'
-        target_dir: 'src/Acme/FooBundle'
-        overwrite: false
-```
 
 ## MakeReadme
 
@@ -58,12 +48,27 @@ Depends on [The Symfony MakerBudle](https://github.com/symfony/maker-bundle).
 
 Copy the template and customize your own README.yml input file:
 
-```$ cp vendor/serotoninja/dev-bundle/src/Resources/templates/readme.yml src/Acme/FooBundle/README.yml```
+```bash
+$ cp vendor/serotoninja/dev-bundle/src/Resources/templates/readme.yml src/Acme/FooBundle/README.yml
+```
 ### Usage
 
-Generate a new README.md file:
+Generate a ```README.md``` file easily:
 
-```$ php bin/console make:readme```
+```bash
+$ php bin/console make:readme
+```
+### Configuration
+
+Configuration is optional, all needed values are requested by the script.
+Change the proposed values in `config_dev.yml`:'
+
+
+```yaml
+serotoninja_dev:
+    make_readme:
+        folder: 'src/Acme/FooBundle'
+```
 
 ## Authors
 
