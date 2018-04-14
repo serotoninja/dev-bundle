@@ -11,6 +11,10 @@
             <argument>%serotoninja_dev.make_readme%</argument>
             <tag name="maker.command" />
         </service>
+        <service id="serotoninja_dev.maker.make_license" class="Serotoninja\DevBundle\Maker\MakeLicense">
+            <argument>%serotoninja_dev.make_license%</argument>
+            <tag name="maker.command" />
+        </service>
 
     </services>
 </container>

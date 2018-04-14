@@ -12,26 +12,20 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Yaml\Yaml;
+use Symfony\Component\Finder\Finder;
 
 /**
- * Class MakeReadme
+ * Class MakeLicense
  *
  * @package Serotoninja\DevBundle\Maker
  *
  * @author serotoninja <serotoninja@gmail.com>
- * @since 2018-04-13
+ * @since 2018-04-14
  */
-final class MakeReadme extends AbstractMaker implements MakerInterface
+final class MakeLicense extends AbstractMaker implements MakerInterface
 {
     /** @var string */
-    private const OUTPUT_FILE = 'README.md';
-
-    /** @var string */
-    private const INPUT_FILE = 'README.yml';
-
-    /** @var string */
-    private const TEMPLATE_FILE = 'README.md.tpl.php';
+    private const OUTPUT_FILE = 'LICENSE';
 
     /** @var array */
     private const KEYS = ['folder'];
@@ -39,8 +33,14 @@ final class MakeReadme extends AbstractMaker implements MakerInterface
     /** @var string */
     private $folder;
 
+    /** @var array */
+    private $licenses;
+
+    /** @var string */
+    private $templateFolder;
+
     /**
-     * MakeReadme constructor.
+     * MakeLicense constructor.
      * @param array $config
      */
     public function __construct(array $config = [])
@@ -51,6 +51,11 @@ final class MakeReadme extends AbstractMaker implements MakerInterface
             }
             $this->$key = $config[$key];
         }
+        $finder = new Finder();
+        $this->templateFolder = __DIR__. '/../Resources/skeleton/license';
+        foreach ($finder->in($this->templateFolder)->name('*.tpl.php') as $file) {
+            $this->licenses[] = explode('.', $file->getFilename())[0];
+        }
     }
 
     /**
@@ -58,7 +63,7 @@ final class MakeReadme extends AbstractMaker implements MakerInterface
      */
     public static function getCommandName(): string
     {
-        return 'make:readme';
+        return 'make:license';
     }
 
     /**
@@ -68,10 +73,13 @@ final class MakeReadme extends AbstractMaker implements MakerInterface
     public function configureCommand(Command $command, InputConfiguration $inputConf)
     {
         $command
-            ->setDescription('Creates a new README.md file')
+            ->setDescription('Creates a new LICENSE file')
+            ->addArgument('license', InputArgument::OPTIONAL, sprintf('Choose a license (e.g. <fg=yellow>%s</>)', explode('.', $this->licenses[0])[0]))
+            ->addArgument('project', InputArgument::OPTIONAL, 'Provide the project name (e.g. <fg=yellow>FooBar</>)')
+            ->addArgument('company', InputArgument::OPTIONAL, 'Provide the company name (e.g. <fg=yellow>Acme</>)')
             ->addArgument('folder', InputArgument::OPTIONAL, sprintf('Choose the working directory (e.g. <fg=yellow>%s</>)', $this->folder))
             ->addOption('force', 'f',InputOption::VALUE_NONE, 'Force generation (overwrites target file)')
-            ->setHelp(file_get_contents(__DIR__.'/../Resources/help/MakeReadme.txt'))
+            ->setHelp(file_get_contents(__DIR__.'/../Resources/help/MakeLicense.txt'))
         ;
     }
 
@@ -82,18 +90,29 @@ final class MakeReadme extends AbstractMaker implements MakerInterface
      */
     public function generate(InputInterface $input, ConsoleStyle $io, Generator $generator)
     {
+        $license = trim($input->getArgument('license'));
+        if (!in_array($license, $this->licenses)) {
+            throw new \RuntimeException(sprintf('License "%s" not available.', $license));
+        }
+
+        $project = trim($input->getArgument('project'));
+        $company = trim($input->getArgument('company'));
         $folder = trim($input->getArgument('folder'));
         $force = trim($input->getOption('force'));
 
-        $templatePath = __DIR__. '/../Resources/skeleton/readme/' . self::TEMPLATE_FILE;
-        $sourcePath = $folder . DIRECTORY_SEPARATOR . self::INPUT_FILE;
         $targetPath = $folder . DIRECTORY_SEPARATOR . self::OUTPUT_FILE;
 
         if ($force && is_file($targetPath)) {
             unlink($targetPath);
         }
 
-        $parameters = Yaml::parse(file_get_contents($sourcePath))['readme'];
+        $templatePath = $this->templateFolder . DIRECTORY_SEPARATOR . $license . '.tpl.php';
+
+        $parameters = [
+            'project' => $project,
+            'year' => date('Y'),
+            'company' => $company
+        ];
 
         $generator->generateFile(
             $targetPath,
@@ -105,8 +124,8 @@ final class MakeReadme extends AbstractMaker implements MakerInterface
 
         $this->writeSuccessMessage($io);
         $io->text([
-            'Next: open your new README.md file and customize it!',
-            'Find the documentation at <fg=yellow>https://en.wikipedia.org/wiki/README</>',
+            'Next: open your new LICENSE file and check it!',
+            'Find the documentation at <fg=yellow>https://en.wikipedia.org/wiki/Software_license</>',
         ]);
     }
 

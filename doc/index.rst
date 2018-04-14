@@ -24,6 +24,7 @@ all executing this command:
 
      [...]
 
+     make:license            Creates a new LICENSE file
      make:readme             Creates a new README.md file
 
      [...]
@@ -33,4 +34,5 @@ optional arguments and options. Check them out with the ``--help`` option:
 
 .. code-block:: terminal
 
+    $ php bin/console make:license --help
     $ php bin/console make:readme --help

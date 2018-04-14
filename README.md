@@ -1,10 +1,11 @@
-<p align="center"><a href="https://github.com/serotoninja/dev-bundle" target="_blank"><img src="https://img.shields.io/badge/serotoninja/dev--bundle-0.0.3-322d2d.svg?&style=for-the-badge" alt="SerotoninjaDevBundle"></a></p><h3 align="center">SerotoninjaDevBundle</h3><p align="center">Some smart development tools for Symfony.<br/><br/><a href="doc/" target="_blank"><strong>Documentation »</strong></a><br/><br/></p><hr>
+<p align="center"><a href="https://github.com/serotoninja/dev-bundle" target="_blank"><img src="https://img.shields.io/badge/serotoninja/dev--bundle-0.0.4-322d2d.svg?&style=for-the-badge" alt="SerotoninjaDevBundle"></a></p><h3 align="center">SerotoninjaDevBundle</h3><p align="center">Some smart development tools for Symfony.<br/><br/><a href="doc/" target="_blank"><strong>Documentation »</strong></a><br/><br/></p><hr>
 
 ## Table of contents
 
 - [Status](#status)
 - [Quickstart](#quickstart)
 - [MakeReadme](#makereadme)
+- [MakeLicense](#makelicense)
 - [Authors](#authors)
 
 ## Status
@@ -15,6 +16,8 @@
 [![License](https://img.shields.io/badge/License-MIT-1284bf.svg?style=flat-square)](LICENSE)
 
 ## Quickstart
+
+Depends on [The Symfony MakerBudle](https://github.com/symfony/maker-bundle).
 
 ### Install via composer
 
@@ -42,8 +45,6 @@ public function registerBundles()
 
 ## MakeReadme
 
-Depends on [The Symfony MakerBudle](https://github.com/symfony/maker-bundle).
-
 ### Input file
 
 Copy the template and customize your own README.yml input file:
@@ -53,7 +54,7 @@ $ cp vendor/serotoninja/dev-bundle/src/Resources/templates/readme.yml src/Acme/F
 ```
 ### Usage
 
-Generate a ```README.md``` file easily:
+Generate a `README.md` file easily:
 
 ```bash
 $ php bin/console make:readme
@@ -61,12 +62,33 @@ $ php bin/console make:readme
 ### Configuration
 
 Configuration is optional, all needed values are requested by the script.
-Change the proposed values in `config_dev.yml`:'
+Change the proposed values in `config_dev.yml`:
 
 
 ```yaml
 serotoninja_dev:
     make_readme:
+        folder: 'src/Acme/FooBundle'
+```
+
+## MakeLicense
+
+### Usage
+
+Generate a `LICENSE` file easily:
+
+```bash
+$ php bin/console make:license
+```
+### Configuration
+
+Configuration is optional, all needed values are requested by the script.
+Change the proposed values in `config_dev.yml`:
+
+
+```yaml
+serotoninja_dev:
+    make_license:
         folder: 'src/Acme/FooBundle'
 ```
 
