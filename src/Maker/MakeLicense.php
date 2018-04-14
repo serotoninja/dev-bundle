@@ -13,7 +13,6 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Finder\Finder;
-use Symfony\Component\Yaml\Yaml;
 
 /**
  * Class MakeLicense
@@ -41,14 +40,6 @@ final class MakeLicense extends AbstractMaker implements MakerInterface
     private $templateFolder;
 
     /**
-     * @return string
-     */
-    public static function getCommandName(): string
-    {
-        return 'make:license';
-    }
-
-    /**
      * MakeLicense constructor.
      * @param array $config
      */
@@ -65,6 +56,14 @@ final class MakeLicense extends AbstractMaker implements MakerInterface
         foreach ($finder->in($this->templateFolder)->name('*.tpl.php') as $file) {
             $this->licenses[] = explode('.', $file->getFilename())[0];
         }
+    }
+
+    /**
+     * @return string
+     */
+    public static function getCommandName(): string
+    {
+        return 'make:license';
     }
 
     /**
