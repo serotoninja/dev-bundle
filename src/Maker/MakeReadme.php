@@ -112,9 +112,5 @@ final class MakeReadme extends AbstractMaker implements MakerInterface
      */
     public function configureDependencies(DependencyBuilder $dependencies)
     {
-        $dependencies->addClassDependency(
-            Command::class,
-            'console'
-        );
     }
 }

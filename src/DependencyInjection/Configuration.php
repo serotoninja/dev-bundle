@@ -23,7 +23,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('sertotoninja_dev');
+        $rootNode = $treeBuilder->root('serotoninja_dev');
 
         $rootNode
             ->children()
@@ -36,7 +36,8 @@ class Configuration implements ConfigurationInterface
                             ->info('The target directory.')
                         ->end()
                         ->booleanNode('overwrite')
-                            ->info('Overwrite the target file if exists.')
+                            ->defaultFalse()
+                            ->info('Overwrite the target file if exists, default false.')
                         ->end()
                     ->end()
                 ->end()

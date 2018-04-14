@@ -12,10 +12,10 @@ if ($html_header) {
         echo '<a href="' . $url . '" target="_blank">';
         echo '<img src="' . $html_header['image'] . '" alt="' . $title . '">';
         echo '</a></p>';
-        echo '<h3 align="center">' . $title . '</h3>';
     } else {
-        echo '<h3 align="center"><a href="' . $url . '" target="_blank">' . $title . '</a></h3>';
+        $title = '<a href="' . $url . '" target="_blank">' . $title . '</a>';
     }
+    echo '<h3 align="center">' . $title . '</h3>';
     echo '<p align="center">';
     echo $description . '<br/><br/>';
     if (is_array($html_header['urls'])) {
@@ -23,10 +23,9 @@ if ($html_header) {
             $header_links = array();
             foreach ($urls as $text => $url) {
                 if ($line === 0) {
-                    $header_links[] = '<a href="' . $url . '" target="_blank"><strong>' . $text . ' »</strong></a>';
-                } else {
-                    $header_links[] = '<a href="' . $url . '" target="_blank">' . $text . '</a>';
+                    $text = '<strong>' . $text . ' »</strong>';
                 }
+                $header_links[] = '<a href="' . $url . '" target="_blank">' . $text . '</a>';
             }
             echo implode(' · ', $header_links) . '<br/><br/>';
         }
@@ -42,7 +41,7 @@ if ($html_header) {
 if ($toc) {
     echo '## Table of contents' . PHP_EOL . PHP_EOL;
     foreach ($chapters as $title => $chapter) {
-        echo '- [' . $title . '](' . $title . ')' . PHP_EOL;
+        echo '- [' . $title . '](#' . Symfony\Bundle\MakerBundle\Str::asSnakeCase($title) . ')' . PHP_EOL;
     }
     echo PHP_EOL;
 }
