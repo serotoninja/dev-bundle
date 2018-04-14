@@ -7,7 +7,7 @@
 [![Symfony](https://img.shields.io/badge/Symfony-3.4-222222.svg?style=flat-square)](https://www.symfony.com/)
 [![License](https://img.shields.io/badge/License-MIT-1284bf.svg?style=flat-square)](LICENSE)
 
-## Installation
+## Quickstart
 
 ### Install via composer
 
@@ -38,6 +38,19 @@ serotoninja_dev:
         target_dir: 'src/Acme/FooBundle'
         overwrite: false
 ```
+
+## MakeReadme
+
+### Input file
+
+Copy the template and customize your own README.yml input file:
+
+```$ cp vendor/serotoninja/dev-bundle/src/Resources/templates/readme.yml src/Acme/FooBundle/README.yml```
+### Usage
+
+Generate a new README.md file:
+
+```$ php bin/console make:readme```
 
 ## Authors
 
