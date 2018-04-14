@@ -61,7 +61,7 @@ Provide contributing info here or a link for details on the code of conduct, and
 
 Also multi-line code is possible:
 
-```
+```bash
 $ multi-line code sample 1
 $ multi-line code sample 2
 $ multi-line code sample 3

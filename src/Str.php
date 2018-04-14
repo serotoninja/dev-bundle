@@ -12,6 +12,8 @@ namespace Serotoninja\DevBundle;
  */
 final class Str
 {
+    private static $validCodeTypes = ['php', 'yml', 'yaml', 'xml', 'bash'];
+
     /**
      * @param string $value
      * @return string
@@ -21,5 +23,26 @@ final class Str
         $value = strtolower($value);
         $value = '#' . str_replace(' ', '-', $value);
         return $value;
+    }
+
+    /**
+     * @param string $value
+     * @return string
+     */
+    public static function handleCode(string $value): string
+    {
+        $result = '```';
+        if (strpos($value, PHP_EOL) !== false) {
+            $lines = explode(PHP_EOL, $value);
+            if (in_array(trim($lines[0]), self::$validCodeTypes)) {
+                $result .= trim($lines[0]) . PHP_EOL;
+                array_shift($lines);
+            }
+            $result .= implode(PHP_EOL, $lines);
+        } else {
+            $result .= $value;
+        }
+        $result .= '```' . PHP_EOL;
+        return $result;
     }
 }
