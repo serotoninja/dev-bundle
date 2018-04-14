@@ -16,8 +16,6 @@ Register as dev bundle in app/AppKernel.php:
 
 .. code-block:: php
 
-    // app/AppKernel.php
-
     public function registerBundles()
     {
         // ...
