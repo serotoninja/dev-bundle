@@ -24,6 +24,9 @@
 Register as dev bundle in app/AppKernel.php:
 
 ```
+<?php
+// app/AppKernel.php
+
 public function registerBundles()
 {
     // ...
@@ -33,6 +36,7 @@ public function registerBundles()
     }
     return $bundles;
 }
+// ...
 ```
 ### Configuration
 
