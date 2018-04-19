@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="serotoninja_dev.email_dir">%kernel.project_dir%/var/emails</parameter>
+        <parameter key="serotoninja_dev.swift_file_transport.class">Serotoninja\DevBundle\Swift\FileTransport</parameter>
+        <parameter key="serotoninja_dev.email_reader.class">Serotoninja\DevBundle\EmailReader</parameter>
+    </parameters>
+
+    <services>
+        <defaults public="false" />
+
+        <service id="serotoninja_dev.email_file_transport" class="%serotoninja_dev.swift_file_transport.class%">
+            <argument>%serotoninja_dev.make_readme%</argument>
+            <call method="setDir">
+                <argument>%serotoninja_dev.email_dir%</argument>
+            </call>
+        </service>
+        <service id="swiftmailer.mailer.transport.file" alias="serotoninja_dev.email_file_transport"/>
+
+        <service id="serotoninja_dev.email_reader" class="%serotoninja_dev.email_reader.class%">
+            <argument>%serotoninja_dev.email_dir%</argument>
+        </service>
+    </services>
+</container>

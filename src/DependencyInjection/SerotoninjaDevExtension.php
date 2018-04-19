@@ -34,6 +34,7 @@ class SerotoninjaDevExtension extends Extension
         }
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        # $loader->load('email.xml');
         $loader->load('makers.xml');
     }
 }
